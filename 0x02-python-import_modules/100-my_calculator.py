@@ -19,7 +19,7 @@ elif ar[2] == '*':
 elif ar[2] == '/':
     op = div
 else:
-    print("Unknown operator. Available operators: +, -, *, and /")
+    print("Unknown operator. Available operators: +, -, * and /")
     exit(1)
 
 n1 = int(ar[1])
