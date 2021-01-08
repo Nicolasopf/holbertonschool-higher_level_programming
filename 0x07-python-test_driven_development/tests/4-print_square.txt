@@ -1,0 +1,88 @@
+check ```print_square```
+"""
+ Test function that print a square according to the size.
+- Prototype: def print_square(size):
+- size is the size length of the square
+- size must be an integer, otherwise raise a TypeError exception with the message size must be an integer
+- if size is less than 0, raise a ValueError exception with the message size must be >= 0
+- if size is a float and is less than 0, raise a TypeError exception with the message size must be an integer
+- You are not allowed to import any module
+"""
+-----------------------
+Checking docstring mod:
+    >>> __import__('4-print_square').__doc__ != None
+    True
+
+Import print_square function:
+
+    >>> print_square = __import__('4-print_square').print_square
+
+check functions docstring:
+
+    >>> print_square.__doc__ != None
+    True
+
+Checking with a valid size:
+
+    >>> print_square(5)
+    #####
+    #####
+    #####
+    #####
+    #####
+    >>> print_square(1)
+    #
+
+Checking with an argument different to int:
+
+    >>> print_square("D")
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+    >>> print_square([5])
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+    >>> print_square(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+    >>> print_square(7.5)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Checking with negative argument:
+
+    >>> print_square(-5)
+    Traceback (most recent call last):
+    ...
+    ValueError: size must be >= 0
+
+Checking with a negative float:
+
+    >>> print_square(-5.8)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+Checking with 0 as argument:
+
+        >>> print_square(0)
+
+Checking the function without argument:
+
+    >>> print_square()
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
+Checking if there are more than two arguments:
+
+    >>> print_square(3, 2)
+    Traceback (most recent call last):
+    ...
+    TypeError: print_square() takes 1 positional argument but 2 were given
