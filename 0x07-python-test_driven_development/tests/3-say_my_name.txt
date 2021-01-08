@@ -1,0 +1,33 @@
+check ```say_my_name```
+""" Test cases for say my name"""
+-----------------------
+    >>> __import__('3-say_my_name').__doc__ != None
+    True
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+    >>> say_my_name.__doc__ != None
+    True
+
+    >>> say_my_name("David", "Arias")
+    My name is David Arias
+
+    >>> say_my_name(543, "Holberton")
+    Traceback (most recent call last):
+            ...
+    TypeError: first_name must be a string
+
+    >>> say_my_name("Holberton", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: last_name must be a string
+
+    >>> say_my_name()
+    Traceback (most recent call last):
+    ...
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+    >>> say_my_name("Holberton")
+    My name is Holberton 
+    >>> say_my_name("Holberton" " is nice")
+    My name is Holberton is nice 
