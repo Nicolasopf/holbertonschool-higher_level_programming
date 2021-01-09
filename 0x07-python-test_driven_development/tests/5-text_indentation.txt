@@ -1,0 +1,67 @@
+check ```text_indentation```
+""" Check for some cases for text_indentation """
+-----------------------
+    >>> __import__('5-text_indentation').__doc__ != None
+    True
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+    >>> text_indentation.__doc__ != None
+    True
+
+    >>> text_indentation("Test")
+    Test
+    >>> text_indentation("Test.")
+    Test.
+    <BLANKLINE>
+    >>> text_indentation(".Test")
+    .
+    <BLANKLINE>
+    Test
+    >>> text_indentation("Test?")
+    Test?
+    <BLANKLINE>
+    >>> text_indentation("Test:")
+    Test:
+    <BLANKLINE>
+    >>> text_indentation("Test.Test:Test?Test")
+    Test.
+    <BLANKLINE>
+    Test:
+    <BLANKLINE>
+    Test?
+    <BLANKLINE>
+    Test
+    >>> text_indentation("?.:")
+    ?
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    >>> text_indentation("Hello." "world")
+    Hello.
+    <BLANKLINE>
+    world
+    >>> text_indentation("  H  Hello.   ")
+    H  Hello.
+    <BLANKLINE>
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+    >>> text_indentation((4, "H"))
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+    >>> text_indentation()
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+    >>> text_indentation("Test", "Test")
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() takes 1 positional argument but 2 were given
