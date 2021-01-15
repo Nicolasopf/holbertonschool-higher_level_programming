@@ -7,19 +7,17 @@ def matrix_divided(matrix, div):
 
     if type(div) not in (int, float):
         raise TypeError("div must be a number")
-
     if type(matrix) is not list or len(matrix) is 0:
         raise TypeError("matrix must be a matrix (list of lists) of integers/\
 floats")
-
     if div == 0:
         raise ZeroDivisionError("division by zero")
     tmp = [row[:] for row in matrix]
     for i in range(len(matrix)):
-        if type(matrix[i]) is not list or len(matrix[i]) is 0:
+        if type(matrix[i]) is not list or len(matrix[0]) is 0:
             raise TypeError("matrix must be a matrix (list of lists) of\
  integers/floats")
-        if len(matrix[0]) != len(matrix[i]):
+        if len(matrix[0]) is not len(matrix[i]):
             raise TypeError("Each row of the matrix must have the same size")
         for h in matrix[i]:
             if type(h) not in (int, float):
