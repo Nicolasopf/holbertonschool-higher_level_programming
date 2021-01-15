@@ -1,86 +1,96 @@
-The ``0-add_integer`` module
-============================
+check ```matrix_divided```
+"""Test function that divides all the matrix by a constant.
+"""
+-----------------------
+    >>> __import__('2-matrix_divided').__doc__ != None
+    True
 
-Using ``add_integer``
----------------------:
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
-    ### Import os for testing contents of the file e.g.,
-    ### os.popen('cat -e 0-add_integer.py | tail -1').read()[-1]
-    >>> import os
+    >>> matrix_divided.__doc__ != None
+    True
 
-    ### Test 1: Import add_integer from 0-add_integer module.
-    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> matrix_divided([[2, 3, 4], [2, 3, 4]], 3)
+    [[0.67, 1.0, 1.33], [0.67, 1.0, 1.33]]
+    >>> matrix_divided([[2, 3, 4], [2, 3, 4]], 10)
+    [[0.2, 0.3, 0.4], [0.2, 0.3, 0.4]]
+    >>> matrix_divided([[2, 3, 4], [2, 3, 4]], 150)
+    [[0.01, 0.02, 0.03], [0.01, 0.02, 0.03]]
 
-    ### Test 2: Both ints.
-    >>> add_integer(1, 2)
-    3
+    >>> matrix_divided([[2, 3, 4], [2, 3, 4]], -3)
+    [[-0.67, -1.0, -1.33], [-0.67, -1.0, -1.33]]
+    >>> matrix_divided([[2, 3, 4], [2, 3, 4]], -10)
+    [[-0.2, -0.3, -0.4], [-0.2, -0.3, -0.4]]
+    >>> matrix_divided([[-2, -3, -4], [-2, -3, -4]], -150)
+    [[0.01, 0.02, 0.03], [0.01, 0.02, 0.03]]
 
-    ### Test 3: One negative
-    >>> add_integer(100, -2)
-    98
-
-    ### Test 4: Only one int.
-    >>> add_integer(2)
-    100
-
-    ### Test 5: One float.
-    >>> add_integer(100.3, -2)
-    98
-
-    ### Test 6: Str in (b) argument.
-    >>> add_integer(4, "School")
+    >>> matrix_divided([[2, 3, 4], [2, 3, 4]], 5j)
     Traceback (most recent call last):
     ...
-    TypeError: b must be an integer
+    TypeError: div must be a number
 
-    ### Test 7: None
-    >>> add_integer(None)
+    >>> matrix_divided([[2, 3j, 4], [2, 3, 4]], 5)
     Traceback (most recent call last):
     ...
-    TypeError: a must be an integer
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-    ### Test 8: Complex type
-    >>> add_integer(3j)
+    >>> matrix_divided([[2, 3, 4], [2, 3, 4]], 5.5)
+    [[0.36, 0.55, 0.73], [0.36, 0.55, 0.73]]
+    >>> matrix_divided([[2, 3.3, 4], [2, 3, 4]], 5)
+    [[0.4, 0.66, 0.8], [0.4, 0.6, 0.8]]
+    >>> matrix_divided([[2, 3, 4.5], [2, 3, 4]], 5.5)
+    [[0.36, 0.55, 0.82], [0.36, 0.55, 0.73]]
+    >>> matrix_divided([[2, 3, 4], [2, 3, 4]], None)
     Traceback (most recent call last):
     ...
-    TypeError: a must be an integer
+    TypeError: div must be a number
 
-    ### Test 9: No args given.
-    >>> add_integer()
+    >>> matrix_divided([[2, 3, 4], [2, 3, 4]], float('inf'))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+    >>> matrix_divided([[2, 3, 4], [2, 3, 4]])
     Traceback (most recent call last):
     ...
-    TypeError: add_integer() missing 1 required positional argument: 'a'
-
-    ### Test 10: Too large of a number.
-    >>> add_integer(1, 10e+1000)
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+    >>> matrix_divided(5)
     Traceback (most recent call last):
     ...
-    OverflowError: cannot convert float infinity to integer
-
-    ### Test 11: Two Floats.
-    >>> add_integer(100.3, -100.3)
-    0
-
-    ### Test 12: Str in (a) argument.
-    >>> add_integer("C was fun", -100.3)
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
+    >>> matrix_divided("Hola")
     Traceback (most recent call last):
     ...
-    TypeError: a must be an integer
+    TypeError: matrix_divided() missing 1 required positional argument: 'div'
 
-    ### Test 13: Three arguments
-    >>> add_integer(0, 1, 2)
+    >>> matrix_divided([[2, 3, 4], [2, 3, 4]], "5")
     Traceback (most recent call last):
     ...
-    TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+    TypeError: div must be a number
 
-    ### Test 14: New line at the end of the file.
-    >>> os.popen('cat -e 0-add_integer.py | tail -1').read()[-1]
-    '\n'
+    >>> matrix_divided([[2, 3, 4], [2, 3, 4]], "5")
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
 
-    ### Test 16: File contains the proper shebang.
-    >>> os.popen('cat 0-add_integer.py | head -1').read()
-    '#!/usr/bin/python3\n'
+    >>> matrix_divided([], 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix(list of lists) of integers/floats
+    >>> matrix_divided([[], []], 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix(list of lists) of integers/floats
 
-    ### Test 17: No error from pep8
-    >>> os.popen("pep8 0-add_integer.py").read()
-    ''
+    >>> matrix_divided([[2, "3", 4], [2, 3, 4]], 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+    >>> matrix_divided([[2, 3, 4], [2, 3, 4, 5]], 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size
+
+    >>> matrix_divided([2, 3, 5], 5)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix(list of lists) of integers/floats
