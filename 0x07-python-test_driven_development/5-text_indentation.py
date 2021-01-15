@@ -10,11 +10,15 @@ def text_indentation(text):
 
     if type(text) is not str:
         raise TypeError("text must be a string")
-    tex = text.strip(" ")
-    for i in range(len(tex)):
-        if tex[i - 1] in [".", "?", ":"] and tex[i] == " ":
-            continue
-        print(tex[i], end='')
-        if tex[i] in [".", "?", ":"]:
-            print()
-            print()
+    i = 0
+    for c in text:
+        if c in [".", "?", ":"]:
+            while i + 1 < len(text) and text[i + 1] == " ":
+                text = text[:i + 1] + text[i + 2:]
+        else:
+            i += 1
+    text = text.strip(" ")
+    for c in text:
+        print(c, end="")
+        if c in [".", "?", ":"]:
+            print("\n")
