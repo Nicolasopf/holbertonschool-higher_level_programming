@@ -1,0 +1,18 @@
+check 1-my_list
+""" Test for 1-my_list.py """
+
+-----------------------
+
+    >>> __import__('1-my_list').__doc__ != None
+    True
+
+    >>> MyList = __import__('1-my_list').MyList
+
+    >>> MyList.__doc__ != None
+    True
+
+    >>> my_list = MyList()
+    >>> print(my_list)
+    []
+    >>> my_list.print_sorted()
+    []
