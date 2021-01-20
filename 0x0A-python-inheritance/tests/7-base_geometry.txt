@@ -33,3 +33,13 @@ check 7-base_geometry.txt
     Traceback (most recent call last):
     ...
     TypeError: ae must be an integer
+
+    >>> bg.integer_validator("my_num", "aerea")
+    Traceback (most recent call last):
+    ...
+    TypeError: my_num must be an integer
+
+    >>> bg.integer_validator("age", 0)
+    Traceback (most recent call last):
+    ...
+    ValueError: age must be greater than 0
