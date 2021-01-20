@@ -43,3 +43,23 @@ check 7-base_geometry.txt
     Traceback (most recent call last):
     ...
     ValueError: age must be greater than 0
+
+    >>> bg.integer_validator("int", 'D')
+    Traceback (most recent call last):
+    ...
+    TypeError: int must be an integer
+
+    >>> bg.integer_validator("int", 13.2)
+    Traceback (most recent call last):
+    ...
+    TypeError: int must be an integer
+
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+    ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+    >>> bg.integer_validator("my_num", -7)
+    Traceback (most recent call last):
+    ...
+    ValueError: my_num must be greater than 0
