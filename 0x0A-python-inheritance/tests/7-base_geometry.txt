@@ -11,6 +11,14 @@ check 7-base_geometry.txt
     True
 
     >>> bg = BaseGeometry()
+
+    >>> bg.integer_validator("num", 10)
+    >>> bg.integer_validator("width", 98)
+    >>> bg.integer_validator("int", "7")
+    Traceback (most recent call last):
+    ...
+    TypeError: int must be an integer
+
     >>> bg.area()
     Traceback (most recent call last):
     ...
