@@ -5,4 +5,4 @@
 def read_file(filename=""):
     """ with is more optimal than a loop """
     with open(filename, encoding='UTF-8') as r:
-            print(reader.read(), end='')
+            print(r.read(), end='')
