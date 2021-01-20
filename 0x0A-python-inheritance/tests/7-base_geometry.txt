@@ -63,3 +63,34 @@ check 7-base_geometry.txt
     Traceback (most recent call last):
     ...
     ValueError: my_num must be greater than 0
+
+
+    >>> bg.integer_validator("my_num", (9,))
+    Traceback (most recent call last):
+    ...
+    TypeError: my_num must be an integer
+
+    >>> bg.integer_validator("my_num", [8])
+    Traceback (most recent call last):
+    ...
+    TypeError: my_num must be an integer
+
+    >>> bg.integer_validator("my_num", True)
+    Traceback (most recent call last):
+    ...
+    TypeError: my_num must be an integer
+
+    >>> bg.integer_validator("my_num", {1, 2})
+    Traceback (most recent call last):
+    ...
+    TypeError: my_num must be an integer
+
+    >>> bg.integer_validator("date", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: date must be an integer
+
+    >>> bg.integer_validator("date", {1,2})
+    Traceback (most recent call last):
+    ...
+    TypeError: date must be an integer
