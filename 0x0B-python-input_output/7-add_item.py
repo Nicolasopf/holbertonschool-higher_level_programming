@@ -13,4 +13,4 @@ except FileNotFoundError:
 for i in argv[1:]:
     obj.append(i)
 
-save_file(obj, filename)
+save_file(obj, add_item.json)
