@@ -3,7 +3,7 @@
  number of characters written """
 
 
-def read_file(filename=""):
+def write_file(filename="", text=""):
     """ same as above """
-    with open(filename) as r:
-        return len(r.readlines())
+    with open(filename, encoding="UTF-8", mode="w+") as r:
+        return r.write(text)
