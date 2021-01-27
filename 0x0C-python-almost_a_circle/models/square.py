@@ -21,7 +21,9 @@ class Square(Rectangle):
         self.height = size
 
     def __str__(self):
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
+        i1 = '(' + str(self.id) + ') ' + str(self.x) + '/'
+        i2 = str(self.y) + ' - ' + str(self.width)
+        return "[Square] " + i1 + i2
 
     def update(self, *args, **kwargs):
         dic = ['id', 'size', 'x', 'y']

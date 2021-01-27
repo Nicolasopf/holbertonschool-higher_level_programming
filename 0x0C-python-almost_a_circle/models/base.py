@@ -27,7 +27,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        fille = f"{cls.__name__}.json"
+        fille = "{}.json".format(cls.__name__)
         with open(fille, 'w', encoding="UTF-8") as file:
             ll = []
             if list_objs is None:

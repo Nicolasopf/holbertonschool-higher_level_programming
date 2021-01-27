@@ -83,8 +83,9 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - \
-{self.__width}/{self.__height}"
+        i1 = '(' + str(self.id) + ') ' + str(self.__x) + '/'
+        i2 = str(self.__y) + ' - ' + str(self.__width)
+        return "[Rectangle] " + i1 + i2 + "/" + str(self.__height)
 
     def update(self, *args, **kwargs):
         dic = ['id', 'width', 'height', 'x', 'y']
