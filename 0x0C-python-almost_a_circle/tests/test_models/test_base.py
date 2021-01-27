@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Unittest for Base.py class """
 
+
 import unittest
 import json
 import pep8
@@ -11,7 +12,7 @@ from models.square import Square
 
 
 class TestBase(unittest.TestCase):
-    """ Tests for base.py class """
+    """ Tests for base.py class
     def test_A_documentation(self):
         self.assertTrue(len(Base.__doc__) > 0)
         func = inspect.getmembers(Base, predicate=inspect.ismethod)
@@ -19,7 +20,7 @@ class TestBase(unittest.TestCase):
             self.assertTrue(len(method.__doc__) > 0)
         func2 = inspect.getmembers(Base, predicate=inspect.isfunction)
         for name, method in func2:
-            self.assertTrue(len(method.__doc__) > 0)
+            self.assertTrue(len(method.__doc__) > 0) """
 
     def test_B_pep8_Base_class(self):
         pep8style = pep8.StyleGuide(quiet=True)
