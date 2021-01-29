@@ -13,6 +13,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
+        """  def init  """
         if id is not None:
             self.id = id
         else:
@@ -21,12 +22,14 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
+        """ Convert to json string """
         if list_dictionaries is None or not list_dictionaries:
             return "[]"
         return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
+        """ Save to a file """
         fille = "{}.json".format(cls.__name__)
         with open(fille, 'w', encoding="UTF-8") as file:
             ll = []
@@ -40,12 +43,14 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
+        """ From json to string """
         if json_string is None or len(json_string) == 0:
             return []
         return json.loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
+        """ Create cls """
         if cls.__name__ == 'Rectangle':
             dummy = cls(1, 1)
         elif cls.__name__ == 'Square':
@@ -55,6 +60,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
+        """ load from a file """
         ll = []
         try:
             fille = "{}.json".format(cls.__name__)
@@ -67,6 +73,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        """ save to a file in csv """
         fille = "{}.csv".format(cls.__name__)
         ll = [d.to_dictionary() for d in list_objs]
         with open(fille, 'w', encoding="UTF-8") as file:
@@ -74,6 +81,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
+        """ Load from a file csv """
         fille = "{}.csv".format(cls.__name__)
         list_objs = []
         try:
