@@ -16,6 +16,7 @@ class Rectangle(Base):
     So after, in your class you can “trust” these attributes.
     """
     def __init__(self, width, height, x=0, y=0, id=None):
+        """ aereaaaaaaaaa """
         self.width = width
         self.height = height
         self.x = x
@@ -79,9 +80,11 @@ class Rectangle(Base):
         self.__y = y
 
     def area(self):
+        """ Returns area """
         return self.__width * self.__height
 
     def display(self):
+        """ Display the rectangle with # """
         if self.__y >= 1:
             print('\n' * (self.__y - 1))
         for i in range(self.__height):
@@ -91,11 +94,13 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
+        """ Prints the string """
         i1 = '(' + str(self.id) + ') ' + str(self.__x) + '/'
         i2 = str(self.__y) + ' - ' + str(self.__width)
         return "[Rectangle] " + i1 + i2 + "/" + str(self.__height)
 
     def update(self, *args, **kwargs):
+        """ Update the rectangle """
         dic = ['id', 'width', 'height', 'x', 'y']
         if args and args[0] is not None:
             for i in range(len(args)):
@@ -105,5 +110,6 @@ class Rectangle(Base):
                 setattr(self, d, kwargs[d])
 
     def to_dictionary(self):
+        """ Return a dict """
         return {'id': self.id, 'width': self.__width, 'height': self.__height,
                 'x': self.__x, 'y': self.__y}
