@@ -8,7 +8,7 @@ if __name__ != '_B_main__':
 
 connection = mysql.connect(
     host='localhost',
-    port=3307,
+    port=3306,
     user=argv[1],
     passwd=argv[2],
     db=argv[3]
