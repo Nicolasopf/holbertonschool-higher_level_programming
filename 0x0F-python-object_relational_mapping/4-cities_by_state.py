@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-""" lists all states with a name starting with N """
+""" Lists all cities from a DB """
 
 from sys import argv
 import MySQLdb as mysql
 
-if __name__ != '__main__':
+if __name__ != "__main__":
     exit
 
 connection = mysql.connect(
@@ -17,9 +17,8 @@ connection = mysql.connect(
 
 cursor = connection.cursor()
 
-syntax = 'SELECT states.id, states.name FROM states WHERE\
- states.name = \'{}\' ORDER BY states.id'.format(argv[4])
+syntax = 'SELECT cities.id, cities.name, states.name FROM cities JOIN states\
+ ON cities.state_id = states.id ORDER BY cities.id'
 cursor.execute(syntax)
-
 for column in cursor:
     print(column)
