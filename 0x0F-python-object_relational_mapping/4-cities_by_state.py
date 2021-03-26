@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" Lists all cities from a DB """
 
 from sys import argv
 import MySQLdb as mysql
