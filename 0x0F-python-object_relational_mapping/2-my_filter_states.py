@@ -18,7 +18,7 @@ connection = mysql.connect(
 cursor = connection.cursor()
 
 syntax = 'SELECT states.id, states.name FROM states WHERE\
- states.name = \'' + argv[4] + '\' ORDER BY states.id'
+ states.name = \'{}\' ORDER BY states.id'.format(argv[4])
 cursor.execute(syntax)
 
 for column in cursor:
