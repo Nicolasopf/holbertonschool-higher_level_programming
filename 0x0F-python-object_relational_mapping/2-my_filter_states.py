@@ -16,7 +16,7 @@ if __name__ == '__main__':
     cursor = connection.cursor()
 
     syntax = 'SELECT states.id, states.name FROM states WHERE\
-    states.name = \'{}\' ORDER BY states.id'.format(argv[4])
+    states.name = {} ORDER BY states.id'.format(argv[4])
     cursor.execute(syntax)
 
     for column in cursor:
