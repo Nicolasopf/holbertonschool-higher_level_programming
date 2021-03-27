@@ -4,7 +4,7 @@
 from sys import argv
 import MySQLdb as mysql
 
-if __name__ != '__main__':
+if __name__ == '__main__':
     connection = mysql.connect(
         host='localhost',
         port=3306,
