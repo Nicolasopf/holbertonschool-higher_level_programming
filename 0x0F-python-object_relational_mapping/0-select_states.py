@@ -19,3 +19,6 @@ cursor = connection.cursor()  # get the cursor
 cursor.execute("SELECT states.id, states.name FROM states ORDER BY states.id")
 for column_name in cursor:
     print(column_name)
+
+cursor.close()
+connection.close()
