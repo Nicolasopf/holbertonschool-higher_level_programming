@@ -3,22 +3,18 @@
 from sys import argv
 import MySQLdb as mysql
 
-if __name__ != '__main__':
-    exit
+if __name__ == '__main__':
+    connection = mysql.connect(
+        host='localhost',
+        port=3306,
+        user=argv[1],
+        passwd=argv[2],
+        db=argv[3]
+    )
 
-connection = mysql.connect(
-    host='localhost',
-    port=3306,
-    user=argv[1],
-    passwd=argv[2],
-    db=argv[3]
-)
+    cursor = connection.cursor()  # get the cursor
 
-cursor = connection.cursor()  # get the cursor
-
-cursor.execute("SELECT states.id, states.name FROM states ORDER BY states.id")
-for column_name in cursor:
-    print(column_name)
-
-cursor.close()
-connection.close()
+    cursor.execute(
+        "SELECT states.id, states.name FROM states ORDER BY states.id")
+    for column_name in cursor:
+        print(column_name)
