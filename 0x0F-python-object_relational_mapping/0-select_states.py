@@ -3,7 +3,7 @@
 from sys import argv
 import MySQLdb as mysql
 
-if __name__ != '_B_main__':
+if __name__ != '__main__':
     exit
 
 connection = mysql.connect(
