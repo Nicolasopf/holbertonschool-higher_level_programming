@@ -13,6 +13,7 @@ if __name__ == "__main__":
     Session = sessionmaker()
     session = Session(bind=engine)
 
-    stmt = insert(State).values(name="Louisiana")
-    result_proxy = session.execute(stmt)
+    stmt = State(name="Louisiana")
+    session.add(stmt)
+    session.commit()
     print(session.query(State).filter_by(name="Louisiana").first().id)
