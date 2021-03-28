@@ -15,6 +15,6 @@ if __name__ == "__main__":
     syntax = session.query(State)
     for item in syntax:
         if 'a' in item.name:
-            query = session.query(State).filter_by(name=item.name)
+            query = session.query(State).filter_by(id=item.id)
             query.delete()
             session.commit()
