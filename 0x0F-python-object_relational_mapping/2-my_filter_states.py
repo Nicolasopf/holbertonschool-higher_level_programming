@@ -22,4 +22,5 @@ syntax = 'SELECT states.id, states.name FROM states WHERE\
 cursor.execute(syntax)
 
 for column in cursor:
-    print(column)
+    if (column[1] == argv[4]):
+        print(column)
