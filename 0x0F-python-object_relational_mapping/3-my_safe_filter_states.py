@@ -5,6 +5,8 @@ from sys import argv
 import MySQLdb as mysql
 
 if __name__ == '__main__':
+    state = argv[4]
+
     connection = mysql.connect(
         host='localhost',
         port=3306,
@@ -16,9 +18,8 @@ if __name__ == '__main__':
     cursor = connection.cursor()
 
     syntax = 'SELECT states.id, states.name FROM states WHERE\
-    states.name = \'{:s}\' ORDER BY states.id'.format(argv[4])
-    cursor.execute(syntax)
+    states.name = %s ORDER BY states.id'
+    cursor.execute(syntax, (state, ))
 
     for column in cursor:
-        if (column[1] == argv[4]):
-            print(column)
+        print(column)
