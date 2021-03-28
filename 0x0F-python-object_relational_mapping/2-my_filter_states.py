@@ -20,4 +20,5 @@ if __name__ == '__main__':
     cursor.execute(syntax)
 
     for column in cursor:
-        print(column)
+        if (column[1] == argv[4]):
+            print(column)
