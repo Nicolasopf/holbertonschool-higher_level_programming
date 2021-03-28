@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" deletes all State objects with a name containing the letter a """
+""" deletes all State objects with a name containing the letter  """
 from sys import argv
 from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
@@ -18,3 +18,4 @@ if __name__ == "__main__":
             query = session.query(State).filter_by(name=item.name)
             query.delete()
             session.commit()
+    session.close()
