@@ -17,5 +17,3 @@ if __name__ == "__main__":
     for item in query:
         if 'a' in item.name:
             print("{}: {}".format(item.id, item.name))
-        else:
-            pass
