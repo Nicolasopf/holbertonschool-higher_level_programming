@@ -1,3 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # Print body response
-curl -sL "$1"
+curl -s "$1"
