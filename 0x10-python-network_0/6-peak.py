@@ -3,10 +3,8 @@
 
 
 def find_peak(list_of_integers):
-    maxx = 0
-    for item in list_of_integers:
-        if maxx < item:
-            maxx = item
-    if maxx == 0:
+    """Generic function"""
+    if not list_of_integers:
         return None
-    return maxx
+    list_of_integers.sort()
+    return list_of_integers[-1]
