@@ -12,6 +12,9 @@ if __name__ == "__main__":
         for dic in text[:10]:
             sha = dic.get('sha')
             commit = dic.get('commit')
-            print(sha + ": " + commit.get('author').get('name'))
+            if commit.get('author'.get('name')):
+                print(sha + ": " + commit.get('author').get('name'))
+            else:
+                print(sha ": None")
     except:
         pass
