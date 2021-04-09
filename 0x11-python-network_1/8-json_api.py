@@ -13,11 +13,11 @@ if __name__ == "__main__":
         "http://110bb9ddcf0f.b594c0bb.hbtn-cod.io:5000/search_user",
         data={"q": q})
 
-    text = response.json()
-    if str(text) == "{}":
-        print("No result")
-    else:
-        try:
+    try:
+        text = response.json()
+        if bool(text) is False:
+            print("No result")
+        else:
             print("[{}] {}".format(text['id'], text['name']))
-        except KeyError:
-            print("Not a valid JSON")
+    except:
+        print("Not a valid JSON")
