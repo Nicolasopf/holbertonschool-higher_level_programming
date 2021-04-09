@@ -15,6 +15,6 @@ if __name__ == "__main__":
             if commit.get('author'.get('name')):
                 print(sha + ": " + commit.get('author').get('name'))
             else:
-                print(sha ": None")
+                print(sha + ": None")
     except:
         pass
