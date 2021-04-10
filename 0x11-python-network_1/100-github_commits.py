@@ -2,7 +2,7 @@
 """ This module takes takes a GitHub repository commits history and list the
 last 10commits. """
 import requests
-from sys import argv
+import sys
 
 
 if __name__ == "__main__":
