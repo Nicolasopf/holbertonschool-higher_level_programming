@@ -5,13 +5,13 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    info = requests.get("https://api.github.com/repos/" + argv[1] + "/" +
-                        argv[2] + "/commits")
-
-    text = info.json()
+    url = 'https://api.github.com/repos/{}/{}/commits'.format(sys.argv[2],
+                                                              sys.argv[1])
+    request = requests.get(url)
+    coms = request.json()
     try:
         for i in range(10):
-            print('{}: {}'.format(text[i].get('sha'), text[i].get('commit')
+            print('{}: {}'.format(coms[i].get('sha'), coms[i].get('commit')
                                   .get('author').get('name')))
     except:
         pass
