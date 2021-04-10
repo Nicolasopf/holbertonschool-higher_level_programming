@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" Get the header value"""
+""" This module takes takes a GitHub repository commits history and list the
+last 10commits. """
 import requests
 from sys import argv
 
