@@ -1,18 +1,19 @@
 #!/usr/bin/node
-const argv = process.argv;
 const request = require('request');
+const argv = process.argv;
+let count = 0;
 
-request(argv[2], function(err, response, body) {
-	if (err) {
-		console.log(err);
-		return;
-	}
-	text = JSON.parse(body);
-	var count = 0;
-	for (const i of text.results) {
-		if ((String(i.characters).search("people/18")) > 0) {
-			count++;
-		}
-	}
-	console.log(count);
-})
+request(argv[2], function (error, response) {
+  if (error) {
+    return console.error(error);
+  }
+  const jsonResp = JSON.parse(response.body);
+  for (const film of jsonResp.results) {
+    for (const actor of film.characters) {
+      if (actor.split('/')[5] === '18') {
+        count += 1;
+      }
+    }
+  }
+  console.log(count);
+});
