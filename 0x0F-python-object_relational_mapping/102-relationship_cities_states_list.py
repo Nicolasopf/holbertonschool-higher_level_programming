@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Lists all cities from db hbtn_0e_101_usa
+''' Lists all cities from db hbtn_0e_101_usa '''
 import sys
 from sqlalchemy.orm import Session
 from relationship_state import State
